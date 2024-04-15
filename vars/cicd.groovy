@@ -4,13 +4,13 @@ def newGit(repo)
 }
 def mvn()
 {
-  sh'"mvn package"
+  sh"mvn package"
 }
 def newdeploy(jobname,ip,context)
 {
-  sh"scp /var/lib/jenkins/workspace/${jobname}/webapp/target/webapp.war ubuntu@${ip}:/var/lib/tomcat9/webapps/${context}.war "
+  sh"scp /var/lib/jenkins/workspace/${jobname}/webapp/target/webapp.war ubuntu@${ip}:/var/lib/tomcat9/webapps/${context}.war"
 }
 def test(jobname)
 {
-  sh"java -jar /var/lib/jenkins/workspace/${jobname}/testing.jar"
+  sh"java -jar /var/lib/jenkins/workspace/${jobname}/testing.war "
 }
